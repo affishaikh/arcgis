@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { LoadMap } from "./services/map.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.less"]
 })
-export class AppComponent {
-  title = 'arcgis';
+export class AppComponent implements OnInit {
+  constructor(private loadMap: LoadMap) {}
+
+  ngOnInit() {
+    this.loadMap.loadMapModule();
+  }
 }
